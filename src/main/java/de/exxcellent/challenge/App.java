@@ -1,5 +1,6 @@
 package de.exxcellent.challenge;
 
+import de.exxcellent.challenge.football.FootballReader;
 import de.exxcellent.challenge.weather.WeatherReader;
 
 /**
@@ -23,11 +24,12 @@ public final class App {
          * i am no longer able to execute my app.main itself.
          * */
         WeatherReader weatherReader = new WeatherReader("weather.csv");
+        FootballReader footballReader = new FootballReader("football.csv");
 
         String dayWithSmallestTempSpread = weatherReader.getDayWithSmallestTempSpread();     // Your day analysis function call …
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
 
-        String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
+        String teamWithSmallestGoalSpread = footballReader.getTeamByAbsoluteGoalDifference(); // Your goal analysis function call …
         System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
     }
 }
